@@ -11,8 +11,8 @@
     </handler>
  -->
      <handler>
-      <handler-name>ServiceAndOperationAsLogNameLogHandler</handler-name>
-      <handler-class>dynamiclogging.ws.handler.ServiceAndOperationAsLogNameLogHandler</handler-class>
+      <handler-name>ServiceAndOperationAsLoggerNameLogHandler</handler-name>
+      <handler-class>dynamiclogging.ws.handler.ServiceAndOperationAsLoggerNameLogHandler</handler-class>
     </handler>
   </handler-chain>
 </handler-chains>

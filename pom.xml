@@ -18,6 +18,8 @@
     <properties>
         <bundle.name>dynamiclogconfig-${project.version}</bundle.name>
         <jetty.version>9.0.5.v20130815</jetty.version>
+        <jerseyVersion>1.17</jerseyVersion>
+
     </properties>
 
     <dependencies>
@@ -51,6 +53,22 @@
             <artifactId>jaxws-rt</artifactId>
             <version>2.2.8</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>
+         <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>
+
 
     </dependencies>
 
