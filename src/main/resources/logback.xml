@@ -3,11 +3,12 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss,Europe/Oslo} %p [%C] - %m %n</pattern>
+            <pattern>%d{HH:mm:ss,Europe/Oslo} %p [%c] - %m %n</pattern>
         </encoder>
     </appender>
     <logger name="org.eclipse" level="WARN"/>
     <logger name="dynamiclogging" level="INFO"/>
+    <logger name="dynamiclogging.ws.out" level="WARN"/>
     <root level="DEBUG">
         <appender-ref ref="console"/>
     </root>

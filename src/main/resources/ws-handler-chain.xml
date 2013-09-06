@@ -5,10 +5,14 @@
       <handler-name>BasicLogHandler</handler-name>
       <handler-class>dynamiclogging.ws.handler.BasicLogHandler</handler-class>
     </handler>
- -->
      <handler>
       <handler-name>ServiceAndOperationLogHandler</handler-name>
       <handler-class>dynamiclogging.ws.handler.ServiceAndOperationLogHandler</handler-class>
+    </handler>
+ -->
+     <handler>
+      <handler-name>ServiceAndOperationAsLogNameLogHandler</handler-name>
+      <handler-class>dynamiclogging.ws.handler.ServiceAndOperationAsLogNameLogHandler</handler-class>
     </handler>
   </handler-chain>
 </handler-chains>
