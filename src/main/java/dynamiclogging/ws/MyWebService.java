@@ -6,7 +6,6 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
-
 @WebService(name = "MyService", targetNamespace = MyWebService.NAMESPACE, serviceName = "MyService" )
 @HandlerChain(file = "ws-handler-chain.xml")
 public class MyWebService {

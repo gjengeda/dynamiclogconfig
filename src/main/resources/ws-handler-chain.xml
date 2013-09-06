@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
   <handler-chain>
-    <handler>
-      <handler-name>LogHandler</handler-name>
+<!--     <handler>
+      <handler-name>BasicLogHandler</handler-name>
       <handler-class>dynamiclogging.ws.handler.BasicLogHandler</handler-class>
+    </handler>
+ -->
+     <handler>
+      <handler-name>ServiceAndOperationLogHandler</handler-name>
+      <handler-class>dynamiclogging.ws.handler.ServiceAndOperationLogHandler</handler-class>
     </handler>
   </handler-chain>
 </handler-chains>
