@@ -9,6 +9,22 @@
     <description>
         Simple test webapplication for enabling dynamic log config
     </description>
+    
+    <listener>
+      <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+   </listener>
+   
+   <servlet>
+      <servlet-name>wsservlet</servlet-name>
+      <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>wsservlet</servlet-name>
+      <url-pattern>/webservice</url-pattern>
+   </servlet-mapping>
+    
     <servlet>
         <servlet-name>LogSomethingServlet</servlet-name>
         <servlet-class>dynamiclogging.servlet.LogSomething</servlet-class>
@@ -16,7 +32,7 @@
 
     <servlet-mapping>
         <servlet-name>LogSomethingServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/logsomething</url-pattern>
     </servlet-mapping>
 
 </web-app>
