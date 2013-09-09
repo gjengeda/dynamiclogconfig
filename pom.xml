@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+	
     <groupId>dynamiclogconfig</groupId>
     <artifactId>dynamiclogconfig</artifactId>
     <version>0.1</version>
@@ -17,9 +17,8 @@
     </licenses>
     <properties>
         <bundle.name>dynamiclogconfig-${project.version}</bundle.name>
-        <jetty.version>9.0.5.v20130815</jetty.version>
+        <jetty.version>8.1.12.v20130726</jetty.version>
         <jerseyVersion>1.17</jerseyVersion>
-
     </properties>
 
     <dependencies>
