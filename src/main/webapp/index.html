@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic log config example</title>
+  <link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+  <script type="text/javascript" src="js/libs/underscore.min.js"></script>
+  <script type="text/javascript" src="js/libs/backbone.min.js"></script>
+  <script type="text/javascript" src="js/logger_router.js"></script>
+  <script type="text/javascript" src="js/models/logger.js"></script>
+  <script type="text/javascript" src="js/models/loggers.js"></script>
+  <script type="text/javascript" src="js/views/logger_index.js"></script>
+  <script type="text/javascript" src="js/views/logger_row.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Logg-konfigurasjon</h1>
+    </div>
+
+    <p class="lead">
+      Justér nivået på loggerne i listen. Loggnivå oppdateres dynamisk på serveren.
+    </p>
+
+    <div class="row">
+      <div id="content">
+        <!-- the container that gets populated with the index -->
+      </div>
+    </div>
+
+  </div>
+  <!-- the index container -->
+  <script type="text/template" id="indexTemplate">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th width="80%">Name</th>          
+          <th width="20%">Level</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </script>
+  <!-- the row template, renders once for each item in the index -->
+  
+  <script type="text/template" id="rowTemplate">
+    <td><%= getName() %></td>
+    <td>
+    <select name="level" class="logLevelSelect">
+    <% getLogLevels().forEach(function (logLevel) { %>
+        <option value="<%= logLevel.val %>" <%= (logLevel.val === getLevel()) ? "selected" : "" %>><%= logLevel.val %></option>
+    <% }); %>
+    </select>
+    </td>
+  </script>
+  <script type="text/javascript">
+    var loggers = new APP.Models.Loggers();
+    var router = new APP.Routers.LoggerRouter({loggers: loggers});
+
+    Backbone.history.start();
+  </script>
+</body>
+</html>
