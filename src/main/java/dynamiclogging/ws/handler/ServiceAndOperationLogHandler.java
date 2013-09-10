@@ -14,9 +14,6 @@ import org.slf4j.LoggerFactory;
 public class ServiceAndOperationLogHandler implements SOAPHandler<SOAPMessageContext>{
 
     private static final String UNKNOWN = "UNKNOWN";
-    private static final String OUT = "out";
-    private static final String IN = "in";
-
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceAndOperationLogHandler.class);
 
     @Override
@@ -36,7 +33,7 @@ public class ServiceAndOperationLogHandler implements SOAPHandler<SOAPMessageCon
         String serviceName = service != null ? service.getLocalPart() : UNKNOWN;
         String operationName = operation != null ? operation.getLocalPart() : UNKNOWN;
 
-        LOGGER.info("[{}] [{}] [{}] " + byteArrayOutputStream.toString(), serviceName, operationName, Boolean.TRUE.equals(isOutboundMessage) ? OUT : IN);
+        LOGGER.info("[{}] [{}] [{}] " + byteArrayOutputStream.toString(), serviceName, operationName, Boolean.TRUE.equals(isOutboundMessage) ? "out" : "in");
         return true;
     }
 

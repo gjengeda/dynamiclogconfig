@@ -15,20 +15,17 @@ public class ServiceAndOperationAsLoggerNameLogHandler implements SOAPHandler<SO
 
     private static final String LOGGERNAME_PREFIX = "dynamiclogging.ws.";
     private static final String UNKNOWN = "UNKNOWN";
-    private static final String SEPARATOR = ".";
-    private static final String OUT = "out";
-    private static final String IN = "in";
-
+    
     private Logger getLogger(final SOAPMessageContext ctx) {
         final QName service = (QName) ctx.get(SOAPMessageContext.WSDL_SERVICE);
         final QName operation = (QName) ctx.get(SOAPMessageContext.WSDL_OPERATION);
 
         final StringBuffer loggerName = new StringBuffer(LOGGERNAME_PREFIX);
         final Boolean isOutboundMessage = (Boolean) ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
-        loggerName.append(Boolean.TRUE.equals(isOutboundMessage) ? OUT : IN);
-        loggerName.append(SEPARATOR);
+        loggerName.append(Boolean.TRUE.equals(isOutboundMessage) ? "out" : "in");
+        loggerName.append(".");
         loggerName.append(service != null ? service.getLocalPart() : UNKNOWN);
-        loggerName.append(SEPARATOR);
+        loggerName.append(".");
         loggerName.append(operation != null ? operation.getLocalPart() : UNKNOWN);
         return LoggerFactory.getLogger(loggerName.toString());
 
