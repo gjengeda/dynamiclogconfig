@@ -24,8 +24,8 @@ public class ServiceAndOperationAsLoggerNameLogHandler implements SOAPHandler<SO
         final QName operation = (QName) ctx.get(SOAPMessageContext.WSDL_OPERATION);
 
         final StringBuffer loggerName = new StringBuffer(LOGGERNAME_PREFIX);
-        final Boolean isOutboundMesssage = (Boolean) ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
-        loggerName.append(Boolean.TRUE.equals(isOutboundMesssage) ? OUT : IN);
+        final Boolean isOutboundMessage = (Boolean) ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+        loggerName.append(Boolean.TRUE.equals(isOutboundMessage) ? OUT : IN);
         loggerName.append(SEPARATOR);
         loggerName.append(service != null ? service.getLocalPart() : UNKNOWN);
         loggerName.append(SEPARATOR);

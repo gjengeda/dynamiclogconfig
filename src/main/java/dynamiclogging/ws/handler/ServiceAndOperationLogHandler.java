@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 public class ServiceAndOperationLogHandler implements SOAPHandler<SOAPMessageContext>{
 
     private static final String UNKNOWN = "UNKNOWN";
+    private static final String OUT = "out";
+    private static final String IN = "in";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceAndOperationLogHandler.class);
 
@@ -29,11 +31,12 @@ public class ServiceAndOperationLogHandler implements SOAPHandler<SOAPMessageCon
         
         final QName service = (QName) ctx.get(SOAPMessageContext.WSDL_SERVICE);
         final QName operation = (QName) ctx.get(SOAPMessageContext.WSDL_OPERATION);
+        final Boolean isOutboundMessage = (Boolean) ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
 
         String serviceName = service != null ? service.getLocalPart() : UNKNOWN;
         String operationName = operation != null ? operation.getLocalPart() : UNKNOWN;
 
-        LOGGER.info("[{}] [{}] " + byteArrayOutputStream.toString(), serviceName, operationName);
+        LOGGER.info("[{}] [{}] [{}] " + byteArrayOutputStream.toString(), serviceName, operationName, Boolean.TRUE.equals(isOutboundMessage) ? OUT : IN);
         return true;
     }
 
